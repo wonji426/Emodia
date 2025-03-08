@@ -1,0 +1,333 @@
+body {
+    font-family: 'Jua', sans-serif;
+    margin: 0;
+    padding: 60px;
+    background-color: #f0f0f0;
+}
+
+.navbar {
+    background-color: #333;
+    width: 100%;
+    font-family: 'Jua', sans-serif;
+    position: fixed;
+    /* 고정 위치 */
+    top: 0;
+    /* 화면 상단에 고정 */
+    left: 0;
+    z-index: 1000;
+    /* 다른 요소들 위에 표시 */
+}
+
+.navbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 60px;
+    /* navbar의 높이 지정 */
+}
+
+.navbar-logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.7em;
+}
+
+.navbar-menu {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+    max-height: none;
+}
+
+.navbar-menu li {
+    margin: 0;
+}
+
+.navbar-menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0 10px;
+    text-decoration: none;
+    line-height: 60px;
+    /* navbar의 높이와 동일하게 설정 */
+}
+
+.navbar-menu li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.toggle-icon {
+    font-size: 0.8em;
+}
+
+/* 반응형 디자인 */
+@media screen and (min-width: 390px) and (max-width: 844px) {
+    .navbar-content {
+        height: auto;
+    }
+
+    .navbar-menu {
+        width: 100%;
+        flex-direction: column;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .navbar-menu.active {
+        opacity: 1;
+        max-height: 300px;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-menu li a {
+        padding: 10px;
+        line-height: normal;
+    }
+
+    body {
+        padding-top: 60px;
+        transition: padding-top 0.5s ease;
+    }
+}
+
+.movie-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px; /* 테이블의 최대 너비 설정 */
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.search-container form {
+    margin-top: 10px;
+}
+
+form[name="search"] {
+    flex: 1;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+
+form[name="search"] input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: border-color 0.3s;
+}
+
+form[name="search"] input[type="text"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+form[name="search"] input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form[name="search"] input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.pagination a,
+.pagination strong {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+.pagination strong {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #b8b8b8;
+    word-wrap: break-word;
+    /* 긴 텍스트 줄바꿈 */
+}
+
+th {
+    background-color: #26ad43;
+    color: white;
+}
+
+img {
+    max-width: 100px;
+    height: auto;
+}
+
+/* 반응형 디자인 */
+@media screen and (min-width: 390px) and (max-width: 650px) {
+    body {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .movie-table {
+        flex-direction: none;
+        align-items: none;
+        justify-content: none;
+        margin: 0;
+        width: 350px;
+    }
+
+    .pagination {
+        font-size: 15px;
+    }
+
+    .pagination a,
+    .pagination strong {
+        padding: 10px 10px;
+    }
+
+    form[name="search"] {
+        flex: 1;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, sans-serif;
+    }
+
+    form[name="search"] input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        margin-right: 10px;
+        transition: border-color 0.3s;
+    }
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin-bottom: 10px;
+        border: 3px solid #03b300;
+        border-radius: 5px;
+        /* 각 영화 항목을 구분하는 테두리 추가 */
+    }
+
+    td {
+        position: relative;
+        padding-left: 50%;
+        padding-bottom: 10px;
+        /* 각 항목 사이의 간격 추가 */
+    }
+
+    td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        content: attr(data-label);
+        font-weight: bold;
+    }
+
+    /* 장르 셀에 대한 특별한 스타일 */
+    td[data-label="Genre"] {
+        word-break: break-word;
+        /* 단어 단위로 줄바꿈 */
+        hyphens: auto;
+        /* 자동 하이픈 추가 */
+    }
+}

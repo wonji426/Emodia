@@ -1,0 +1,369 @@
+/* login.css */
+
+body {
+    font-family: 'Jua', sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.navbar {
+    background-color: #333;
+    width: 100%;
+    font-family: 'Jua', sans-serif;
+    position: fixed;
+    /* 고정 위치 */
+    top: 0;
+    /* 화면 상단에 고정 */
+    left: 0;
+    z-index: 1000;
+    /* 다른 요소들 위에 표시 */
+}
+
+.navbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 60px;
+    /* navbar의 높이 지정 */
+}
+
+.navbar-logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.7em;
+}
+
+.navbar-menu {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+    max-height: none;
+}
+
+.navbar-menu li {
+    margin: 0;
+}
+
+.navbar-menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0 10px;
+    text-decoration: none;
+    line-height: 60px;
+    /* navbar의 높이와 동일하게 설정 */
+}
+
+.navbar-menu li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.toggle-icon {
+    font-size: 0.8em;
+}
+
+/* 반응형 디자인 */
+@media screen and (min-width: 390px) and (max-width: 844px) {
+    .navbar-content {
+        height: auto;
+    }
+
+    .navbar-menu {
+        width: 100%;
+        flex-direction: column;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .navbar-menu.active {
+        opacity: 1;
+        max-height: 300px;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-menu li a {
+        padding: 10px;
+        line-height: normal;
+    }
+
+    body {
+        padding-top: 100px;
+    }
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 350px;
+    text-align: center;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input[type="submit"],
+input[type="reset"],
+#loginBox button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+input[type="reset"] {
+    background-color: #f44336;
+}
+
+#loginBox button {
+    background-color: #008CBA;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+button:hover {
+    opacity: 0.9;
+}
+
+input[type="submit"]:active,
+input[type="reset"]:active,
+button:active {
+    transform: scale(0.98);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.change-password-message {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+#passwordInput {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 65%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#passwordRecoveryOptions {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 350px;
+    text-align: center;
+}
+
+#securityQuestionBtn,
+#emailRecoveryBtn,
+#backToLoginBtn {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+}
+
+#securityQuestionBtn {
+    background-color: #4CAF50;
+}
+
+#emailRecoveryBtn {
+    background-color: #008CBA;
+}
+
+#backToLoginBtn {
+    background-color: #f44336;
+}
+
+#securityQuestionBtn:hover,
+#emailRecoveryBtn:hover,
+#backToLoginBtn:hover {
+    opacity: 0.9;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+#findIdBtn,
+#findPasswordBtn {
+    flex: 1;
+    padding: 12px;
+    background-color: #cf695b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#findIdBtn:hover,
+#findPasswordBtn:hover {
+    opacity: 0.9;
+}
+
+#findIdBtn:active,
+#findPasswordBtn:active {
+    transform: scale(0.98);
+}
+
+@media screen and (min-width: 390px) and (max-width: 844px) {
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    form {
+        padding: 25px;
+        max-width: 330px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"],
+    input[type="reset"],
+    #loginBox button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .change-password-message {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .toggle-password {
+        font-size: 16px;
+    }
+
+    #findIdBtn,
+    #findPasswordBtn {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media screen and (min-width: 845px) {
+    body {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    form {
+        padding: 20px;
+        max-width: 380px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"],
+    input[type="reset"],
+    #loginBox button {
+        font-size: 16px;
+        padding: 14px;
+    }
+
+    .change-password-message {
+        font-size: 14px;
+        padding: 14px;
+    }
+
+    .toggle-password {
+        font-size: 20px;
+    }
+}

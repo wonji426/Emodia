@@ -1,0 +1,147 @@
+/* body {
+    font-family: "Jua", sans-serif;
+    margin: 0;
+    
+    box-sizing: border-box;
+} */
+
+.container {
+    /* max-width: 1200px; */
+    margin: 0 auto;
+}
+
+.info-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.info-line p {
+    margin: 0;
+}
+
+#reset-btn {
+    margin-left: auto;
+}
+
+h3 {
+    color: #333;
+}
+
+#reset-btn {
+    background-color: #2d58a8;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    /* margin: 4px 2px; */
+    cursor: pointer;
+    border-radius: 10%;
+}
+
+#reset-btn:hover {
+    background-color: #637ba6;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    /* margin: 4px 2px; */
+    cursor: pointer;
+    border-radius: 10%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 5px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #b8b8b8;
+    word-wrap: break-word; /* 긴 텍스트 줄바꿈 */
+}
+
+th {
+    background-color: #4ec768;
+}
+
+.img-poster {
+    max-width: 100px;
+    height: auto;
+}
+
+.no-results {
+    text-align: center;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #6c757d;
+}
+
+/* 반응형 디자인 */
+@media screen and (min-width: 390px) and (max-width: 650px) {
+
+    .container{
+        width: 350px;
+    }
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin-bottom: 10px;
+        border: 3px solid #03b300;
+        border-radius: 5px;
+        /* 각 영화 항목을 구분하는 테두리 추가 */
+    }
+
+    td {
+        position: relative;
+        padding-left: 50%;
+        padding-bottom: 10px;
+        /* 각 항목 사이의 간격 추가 */
+    }
+
+    td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        content: attr(data-label);
+        font-weight: bold;
+    }
+
+    /* 장르 셀에 대한 특별한 스타일 */
+    td[data-label="Genre"] {
+        word-break: break-word;
+        /* 단어 단위로 줄바꿈 */
+        hyphens: auto;
+        /* 자동 하이픈 추가 */
+    }
+}

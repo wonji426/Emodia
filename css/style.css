@@ -1,0 +1,773 @@
+body {
+    font-family: 'Jua', sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 60px;
+    background-color: #f0f0f0;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.navbar {
+    background-color: #333;
+    width: 100%;
+    font-family: 'Jua', sans-serif;
+    position: fixed;
+    /* 고정 위치 */
+    top: 0;
+    /* 화면 상단에 고정 */
+    left: 0;
+    z-index: 1000;
+    /* 다른 요소들 위에 표시 */
+}
+
+.navbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 60px;
+    /* navbar의 높이 지정 */
+}
+
+.navbar-logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.7em;
+}
+
+.navbar-menu {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+    max-height: none;
+}
+
+.navbar-menu li {
+    margin: 0;
+}
+
+.navbar-menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0 10px;
+    text-decoration: none;
+    line-height: 60px;
+    /* navbar의 높이와 동일하게 설정 */
+}
+
+.navbar-menu li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.toggle-icon {
+    font-size: 0.8em;
+}
+
+/* 반응형 디자인 */
+@media screen and (min-width: 390px) and (max-width: 844px) {
+    .navbar-content {
+        height: auto;
+    }
+
+    .navbar-menu {
+        width: 100%;
+        flex-direction: column;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .navbar-menu.active {
+        opacity: 1;
+        max-height: 300px;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-menu li a {
+        padding: 10px;
+        line-height: normal;
+    }
+
+    body {
+        padding-top: 60px;
+        transition: padding-top 0.5s ease;
+    }
+}
+
+h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.camera-start-btn {
+    width: 600px;
+    height: 100px;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #4CAF50;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.camera-start-btn:hover {
+    background-color: #7cda7f;
+}
+
+.initpic-btn {
+    width: 100%;
+    height: 100px;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.image-upload-wrap:hover {
+    background-color: #f1f1f1;
+}
+
+.image-upload-wrap h3 {
+    font-size: 25px;
+    color: #999;
+}
+
+.file-upload-input {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-upload-content {
+    display: none;
+    text-align: center;
+}
+
+.file-upload-image {
+    max-width: 100%;
+    max-height: 300px;
+    margin: 20px 0;
+}
+
+.image-title-wrap {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.remove-image {
+    width: 100%;
+    height: 100px;
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #ff0000;
+    color: white;
+}
+
+.remove-image:hover {
+    background-color: #ff3b3b;
+}
+
+.stop-Webcam {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.stop-Webcam:hover {
+    background-color: #ff3b3b;
+}
+
+.file-upload-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.file-upload {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.file-upload-content {
+    width: 600px;
+}
+
+.text-narrow {
+    display: none;
+}
+
+.text-wide {
+    display: inline;
+}
+
+.file-upload-btn {
+    width: 100%;
+    height: 100px;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.file-upload-btn:hover {
+    background-color: #288efc;
+}
+
+.image-upload-wrap {
+    width: 600px;
+    height: 100px;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    /* 수평 중앙 정렬 */
+    align-items: center;
+    /* 수직 중앙 정렬 */
+}
+
+.highest-prediction-container {
+    font-size: 40px;
+}
+
+.webcam-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+#webcam-container {
+    max-width: 400px;
+    width: 100%;
+}
+
+#webcam-container canvas {
+    width: 100%;
+    height: auto;
+}
+
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    width: 50px;
+    height: 50px;
+    display: none;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #7cda7f;
+}
+
+.rating-ex {
+    right: 0;
+}
+
+#chart-container {
+    background-color: #ffe5a5;
+    border-radius: 5%;
+    max-width: 600px;
+    display: none;
+    width: 100%;
+}
+
+.video-container {
+    position: relative;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 16 / 9;
+}
+
+#player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 반응형 디자인 */
+@media screen and (min-width: 390px) and (max-width: 844px) {
+
+    body {
+        padding: 60px 0px 0px 0px;
+    }
+
+    .text-wide {
+        display: none;
+    }
+
+    .text-narrow {
+        display: inline;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+        font-family: 'Jua', sans-serif;
+    }
+
+    h2 {
+        font-size: 15px;
+        margin-bottom: 20px;
+        font-family: 'Jua', sans-serif;
+    }
+
+    .image-upload-wrap h3 {
+        font-size: 15px;
+    }
+
+    .camera-start-btn {
+        display: none;
+    }
+
+    .file-upload {
+        width: 350px;
+    }
+
+    .file-upload-btn {
+        width: 100%;
+        height: 80px;
+    }
+
+    .image-upload-wrap {
+        width: 350px;
+        height: 80px;
+    }
+
+    .image-title-wrap {
+        width: 350px;
+    }
+
+    .remove-image {
+        height: 80px;
+        font-size: 15px;
+    }
+
+    .initpic-btn {
+        height: 80px;
+        font-size: 25px;
+    }
+
+    .file-upload-content {
+        width: 350px;
+    }
+}
+
+/* CSS 수정 */
+#music-recommendation-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#music-recommendation-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    color: #333;
+}
+
+/* 스크롤 컨테이너 */
+.music-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
+    gap: 15px;
+    padding: 10px 5px;
+}
+
+/* 스크롤바 스타일링 */
+.music-scroll-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.music-scroll-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.music-scroll-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.music-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* 음악 아이템 스타일 */
+.music-item {
+    flex: 0 0 auto;
+    width: 280px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    scroll-snap-align: start;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 썸네일 이미지 */
+.music-item img {
+    width: 250px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* 제목 텍스트 */
+.music-item p {
+    font-size: 16px;
+    margin: 10px 0;
+    text-align: center;
+    color: #333;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    overflow: hidden;
+    height: 40px;
+    max-height: 40px;
+}
+
+/* 크로스 브라우저 지원을 위한 대체 방법 */
+@supports not (-webkit-line-clamp: 2) {
+    .music-item p {
+        display: block;
+        display: -webkit-box;
+        height: 40px;
+        line-height: 1.25;
+        position: relative;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+/* 재생 버튼 */
+.scroll_move {
+    background-color: #007AFF;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 25px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.scroll_move:active {
+    opacity: 0.7;
+}
+
+/* 아이폰 미디어 쿼리 */
+@media screen and (device-width: 390px) and (device-height: 844px),
+       screen and (device-width: 428px) and (device-height: 926px),
+       screen and (max-width: 390px) {
+    
+    .music-item {
+        width: 250px;
+    }
+
+    .music-item img {
+        width: 220px;
+        height: 124px;
+    }
+
+    #music-recommendation-container h2 {
+        font-size: 22px;
+    }
+
+    .music-item p {
+        font-size: 15px;
+    }
+
+    .scroll_move {
+        padding: 8px 20px;
+        font-size: 15px;
+    }
+}
+
+/* 안전영역 고려 */
+@supports (padding: max(0px)) {
+    #music-recommendation-container {
+        padding-left: max(15px, env(safe-area-inset-left));
+        padding-right: max(15px, env(safe-area-inset-right));
+        padding-top: max(15px, env(safe-area-inset-top));
+        padding-bottom: max(15px, env(safe-area-inset-bottom));
+    }
+}
+
+/* 다크모드 */
+@media (prefers-color-scheme: dark) {
+    #music-recommendation-container {
+        background: #000;
+    }
+
+    #music-recommendation-container h2,
+    .music-item p {
+        color: #fff;
+    }
+
+    .music-item {
+        background: #1C1C1E;
+    }
+
+    .music-scroll-container::-webkit-scrollbar-track {
+        background: #2C2C2E;
+    }
+
+    .music-scroll-container::-webkit-scrollbar-thumb {
+        background: #666;
+    }
+
+    .music-scroll-container::-webkit-scrollbar-thumb:hover {
+        background: #888;
+    }
+}
+
+/* 챗봇 버튼 스타일 */
+.chatbot-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    padding: 15px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.chatbot-btn:hover {
+    background-color: #288efc;
+}
+
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background-color: #fefefe;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    padding: 0px 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.chat-messages {
+    height: 310px;
+    overflow-y: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.bot-message {
+    background-color: #f1f1f1;
+    margin-right: auto;
+}
+
+.user-message {
+    background-color: #007bff;
+    color: white;
+    margin-left: auto;
+}
+
+.chat-input {
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+}
+
+.chat-input input:hover {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.chat-input button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background-color: #0056b3;
+}
+
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading-text {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

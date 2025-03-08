@@ -1,0 +1,350 @@
+body {
+    font-family: 'Jua', sans-serif;
+    margin: 0;
+    padding: 60px 0px 0px 0px;
+    background-color: #f0f0f0;
+}
+
+.navbar {
+    background-color: #333;
+    width: 100%;
+    font-family: 'Jua', sans-serif;
+    position: fixed;
+    /* 고정 위치 */
+    top: 0;
+    /* 화면 상단에 고정 */
+    left: 0;
+    z-index: 1000;
+    /* 다른 요소들 위에 표시 */
+}
+
+.navbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 60px;
+    /* navbar의 높이 지정 */
+}
+
+.navbar-logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.7em;
+}
+
+.navbar-menu {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+    max-height: none;
+}
+
+.navbar-menu li {
+    margin: 0;
+}
+
+.navbar-menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0 10px;
+    text-decoration: none;
+    line-height: 60px;
+    /* navbar의 높이와 동일하게 설정 */
+}
+
+.navbar-menu li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.toggle-icon {
+    font-size: 0.8em;
+}
+
+/* 반응형 디자인 */
+@media screen and (min-width: 390px) and (max-width: 844px) {
+    .navbar-content {
+        height: auto;
+    }
+
+    .navbar-menu {
+        width: 100%;
+        flex-direction: column;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .navbar-menu.active {
+        opacity: 1;
+        max-height: 300px;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-menu li a {
+        padding: 10px;
+        line-height: normal;
+    }
+
+    body {
+        padding-top: 60px;
+        transition: padding-top 0.5s ease;
+    }
+}
+
+/* 마이페이지 컨테이너 */
+.mypage-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 마이페이지 제목 */
+.mypage-container h1 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 섹션 제목 */
+.mypage-container h2 {
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* 폼 스타일 */
+.mypage-container form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 입력 필드 */
+.mypage-container input[type="password"] {
+    width: 96%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* 버튼 스타일 */
+.mypage-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.mypage-container input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* 회원 탈퇴 버튼 */
+.mypage-container input[name="delete_account"] {
+    background-color: #dc3545;
+}
+
+.mypage-container input[name="delete_account"]:hover {
+    background-color: #c82333;
+}
+
+/* 장르 변경 버튼 */
+.mypage-container input[name="change-genre-btn"] {
+    background-color: #4CAF50;
+}
+
+.mypage-container input[name="change-genre-btn"]:hover {
+    background-color: #358138;
+}
+
+/* 사용자 아이디 표시 스타일 */
+.user-id-display {
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-id-display h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.user-id-display p {
+    font-size: 40px;
+    font-weight: bold;
+    color: #56616e;
+    margin: 0;
+}
+
+.user-id-display small {
+    color: #666;
+    font-size: 20px;
+}
+
+input[type="text"] {
+    font-size: 16px;
+    width: 97%;
+    padding: 10px;
+    margin: 10px 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="password"] {
+    width: 97%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="email"] {
+    font-size: 16px;
+    width: 97%;
+    padding: 10px;
+    margin: 10px 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="text"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+input[type="password"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+input[type="email"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.password-container {
+    position: relative;
+    width: 97%;
+}
+
+#password-container {
+    position: relative;
+}
+  
+#current_password-a {
+    width: 100%;
+    padding: 10px;
+    padding-right: 5px;
+}
+
+#new_password-b {
+    width: 100%;
+    padding: 10px;
+    padding-right: 5px;
+}
+
+#confirm_password-c {
+    width: 100%;
+    padding: 10px;
+    padding-right: 5px;
+}
+
+#confirm_password {
+    width: 100%;
+    padding: 10px;
+    padding-right: 10px;
+}
+  
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* 이메일 표시 및 수정 컨테이너 */
+.email-section {
+    margin-top: 30px;
+}
+
+.email-display-container {
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.masked-email {
+    font-size: 18px;
+    color: #56616e;
+    margin: 10px 0;
+}
+
+.email-submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.email-submit-btn:hover {
+    background-color: #218838;
+}
+
+/* 반응형 디자인 */
+@media screen and (min-width: 390px) and (max-width: 844px) {
+    
+}
